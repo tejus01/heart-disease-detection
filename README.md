@@ -1,84 +1,92 @@
-Heart Disease Detection
-This project aims to predict the likelihood of heart disease in patients based on various health factors such as age, cholesterol levels, and blood pressure. It uses machine learning techniques to analyze the dataset and provide insights into the likelihood of heart disease, which can help in early detection and prevention.
+# Heart Disease Detection using Machine Learning
 
-Table of Contents
-Installation
-Dataset
-Preprocessing
-Modeling
-Evaluation
-Usage
-Contributing
-License
-Installation
-To run the project locally, follow these steps:
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Python 3.7+](https://img.shields.io/badge/python-3.7+-blue.svg)](https://www.python.org/downloads/)
 
-Clone the repository:
+Early detection of heart disease is crucial for effective treatment and prevention. This project leverages machine learning techniques to predict the likelihood of heart disease in patients based on various health factors. By analyzing a patient's medical data, our models provide valuable insights that can aid in early diagnosis and intervention.
 
-bash
-Copy code
-git clone https://github.com/tejus01/heart-disease-detection.git
-Navigate into the project folder:
+## Getting Started
 
-bash
-Copy code
-cd heart-disease-detection
-Install the necessary dependencies. It’s recommended to use a virtual environment:
+### Prerequisites
 
-bash
-Copy code
-pip install -r requirements.txt
-Dataset
-The dataset used in this project is the Heart Disease UCI dataset, which contains information on patients' health attributes and the presence of heart disease. It includes the following features:
+Before running the project, ensure you have Python 3.7 or higher installed. It's highly recommended to create a virtual environment to manage project dependencies.
 
-Age
-Sex
-Chest pain type
-Blood pressure
-Cholesterol
-Fasting blood sugar
-Resting electrocardiographic results
-Maximum heart rate achieved
-Exercise induced angina
-ST depression induced by exercise
-Slope of the peak exercise ST segment
-Number of major vessels colored by fluoroscopy
-Thalassemia
-You can find the dataset here.
+### Installation
 
-Preprocessing
-Before training the model, the dataset undergoes the following preprocessing steps:
+1.  **Clone the repository:**
 
-Handling missing values
-Encoding categorical variables (e.g., sex, chest pain type)
-Scaling numerical features for better model performance
-Modeling
-This project uses machine learning algorithms to predict heart disease. The models include:
+    ```bash
+    git clone [https://github.com/tejus01/heart-disease-detection.git](https://github.com/tejus01/heart-disease-detection.git)
+    ```
 
-Logistic Regression
-Random Forest Classifier
-Support Vector Machine (SVM)
-K-Nearest Neighbors (KNN)
-The models are evaluated based on accuracy, precision, recall, and F1 score.
+2.  **Navigate to the project directory:**
 
-Evaluation
-After training the models, the performance is evaluated using metrics such as:
+    ```bash
+    cd heart-disease-detection
+    ```
 
-Accuracy
-Confusion Matrix
-ROC Curve
-The best-performing model is selected for further testing and usage.
+3.  **Create a virtual environment (recommended):**
 
-Usage
-To predict heart disease for a new patient, you can run the following Python script:
+    ```bash
+    python3 -m venv venv  # For macOS/Linux
+    python -m venv venv    # For Windows
+    ```
 
-bash
-Copy code
+4.  **Activate the virtual environment:**
+
+    ```bash
+    source venv/bin/activate   # For macOS/Linux
+    venv\Scripts\activate     # For Windows
+    ```
+
+5.  **Install dependencies:**
+
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+## Dataset
+
+This project utilizes the Heart Disease UCI dataset, a widely used dataset in machine learning for heart disease prediction. It contains 76 attributes, but all published studies refer to using a subset of 14 of them. These features include:
+
+*   Age
+*   Sex
+*   Chest pain type (4 values)
+*   Resting blood pressure
+*   Serum cholestoral in mg/dl
+*   Fasting blood sugar > 120 mg/dl
+*   Resting electrocardiographic results (values 0,1,2)
+*   Maximum heart rate achieved
+*   Exercise induced angina
+*   ST depression induced by exercise relative to rest
+*   The slope of the peak exercise ST segment
+*   Number of major vessels (0-3) colored by flourosopy
+*   Thal: 3 = normal; 6 = fixed defect; 7 = reversable defect
+
+You can find the dataset [here](https://archive.ics.uci.edu/ml/datasets/heart+Disease).
+
+## Data Preprocessing
+
+The dataset undergoes several preprocessing steps to prepare it for model training:
+
+*   **Handling Missing Values:** Missing values (if any) are handled using appropriate imputation techniques (e.g., mean/median imputation or more advanced methods).
+*   **Encoding Categorical Variables:** Categorical features like 'Sex' and 'Chest pain type' are converted into numerical representations using one-hot encoding or label encoding.
+*   **Feature Scaling:** Numerical features are scaled using StandardScaler or MinMaxScaler to ensure that all features contribute equally to the model training process, preventing features with larger values from dominating.
+
+## Machine Learning Models
+
+The following machine learning models are used for heart disease prediction:
+
+*   **Logistic Regression:** A linear model for binary classification.
+*   **Random Forest Classifier:** An ensemble learning method that combines multiple decision trees.
+*   **Support Vector Machine (SVM):** A powerful algorithm that finds the optimal hyperplane to separate data points.
+*   **K-Nearest Neighbors (KNN):** A non-parametric algorithm that classifies data points based on their proximity to neighbors.
+
+Model performance is evaluated using metrics such as accuracy, precision, recall, and F1-score. A confusion matrix and ROC curve analysis are also performed to select the best-performing model.
+
+## Usage
+
+To predict the likelihood of heart disease for a new patient, use the `predict.py` script:
+
+```bash
 python predict.py --age 60 --sex 1 --cp 3 --trestbps 130 --chol 250 --fbs 0 --restecg 0 --thalach 150 --exang 1 --oldpeak 1.5 --slope 2 --ca 0 --thal 2
-This will return the likelihood of the patient having heart disease based on the model.
-
-Contributing
-Contributions are welcome! If you want to contribute to the project, please fork the repository, create a new branch, make your changes, and submit a pull request.
-
-License
-This project is licensed under the MIT License - see the LICENSE file for details.
