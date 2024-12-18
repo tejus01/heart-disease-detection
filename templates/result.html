@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Disease Prediction Results</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+</head>
+<body>
+    <div class="ui container">
+        <h1 class="ui header">Heart Disease Prediction Model Results</h1>
+        
+        <div class="ui segment">
+            <h3>Model Metrics</h3>
+            <p><strong>Accuracy:</strong> {{ accuracy }}</p>
+            <p><strong>Precision:</strong> {{ precision }}</p>
+            <p><strong>Recall:</strong> {{ recall }}</p>
+            <p><strong>F1 Score:</strong> {{ f1_score }}</p>
+        </div>
+        
+        <div class="ui segment">
+            <h3>Model Visualizations</h3>
+            {{ plot_html | safe }}
+        </div>
+    </div>
+</body>
+</html>
